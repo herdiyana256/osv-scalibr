@@ -1,0 +1,40 @@
+# Dockerfile: Wolfi OS Testbed for OSV-SCALIBR os/wolfi extractor verification
+#
+# Wolfi images (cgr.dev/chainguard/wolfi-base) store the APK database at
+# /usr/lib/apk/db/installed (apk v3 layout). The os/wolfi extractor handles
+# this path alongside /lib/apk/db/installed and /var/lib/apk/db/installed.
+#
+# Usage:
+#   docker build -f Dockerfile.wolfi-testbed -t wolfi-scalibr-testbed .
+#   docker run --rm wolfi-scalibr-testbed cat /etc/os-release
+#   docker run --rm wolfi-scalibr-testbed cat /usr/lib/apk/db/installed | head -50
+#
+# To scan with scalibr (after building from source):
+#   docker run --rm -v $(pwd)/scalibr:/scalibr wolfi-scalibr-testbed \
+#     /scalibr --extractors=os/wolfi --output=- /
+
+FROM cgr.dev/chainguard/wolfi-base:latest
+
+# Install additional packages to populate the APK database with real CVE targets.
+# These packages have known Wolfi/Chainguard advisories in OSV.dev.
+RUN apk add --no-cache \
+    python3 \
+    openssl \
+    libcrypto3 \
+    libssl3 \
+    busybox \
+    apk-tools
+
+# Verify OS detection: must show ID=wolfi
+RUN echo "=== /etc/os-release ===" && cat /etc/os-release
+
+# Verify APK database location (Wolfi uses /usr/lib/apk/db/installed)
+RUN echo "=== APK database path ===" && \
+    find / -name "installed" -path "*/apk/*" 2>/dev/null && \
+    echo "=== First 60 lines of APK DB ===" && \
+    head -60 /usr/lib/apk/db/installed
+
+# Output all installed packages for verification
+RUN apk info -v
+
+CMD ["cat", "/usr/lib/apk/db/installed"]

@@ -1,0 +1,28 @@
+C:Q1chainguardbaseimage=
+P:chainguard-baselayout
+V:1.0.0-r5
+A:x86_64
+S:5120
+I:36864
+T:Chainguard base dir structure
+U:https://github.com/chainguard-dev
+L:Apache-2.0
+o:chainguard-baselayout
+m:Chainguard <support@chainguard.dev>
+t:1704153600
+c:cafebabecafebabecafebabecafebabecafebabe
+
+C:Q1glibc2chainguard==
+P:glibc
+V:2.38-r5
+A:x86_64
+S:2342912
+I:5242880
+T:GNU C Library
+U:http://www.gnu.org/software/libc/
+L:LGPL-2.1-or-later
+o:glibc
+m:Chainguard <support@chainguard.dev>
+t:1704153600
+c:feedfacedeadfeedfacedeadfeedfacedeadfeed
+

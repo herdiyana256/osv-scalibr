@@ -39,6 +39,14 @@ func MakeEcosystem(metadata any) osvecosystem.Parsed {
 	osVersionID := ""
 	switch m := metadata.(type) {
 	case *apkmeta.Metadata:
+		// Wolfi and Chainguard do not use a version suffix in their ecosystem
+		// identifiers, so check OSID before inspecting the version field.
+		if m.OSID == "wolfi" {
+			return osvecosystem.FromEcosystem(osvconstants.EcosystemWolfi)
+		}
+		if m.OSID == "chainguard" {
+			return osvecosystem.FromEcosystem(osvconstants.EcosystemChainguard)
+		}
 		version := m.ToDistro()
 		if version == "" {
 			return osvecosystem.FromEcosystem(osvconstants.EcosystemAlpine)

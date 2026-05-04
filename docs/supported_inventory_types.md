@@ -35,6 +35,8 @@ See the docs on [how to add a new Extractor](/docs/new_extractor.md).
 | Inventory Type    | Details                        | Extractor Plugin                             |
 |-------------------| ------------------------------ |----------------------------------------------|
 | Alpine            | APK                            | `os/apk`                                     |
+| Wolfi OS          | APK (Wolfi/Chainguard images)  | `os/wolfi`                                   |
+| Chainguard        | APK (Chainguard container images) | `os/wolfi`                                |
 | Chrome extensions |                                | `chrome/extensions`                          |
 | COS               | cos-package-info.json          | `os/cos`                                     |
 | DPKG              | e.g. Debian, Ubuntu            | `os/dpkg`                                    |

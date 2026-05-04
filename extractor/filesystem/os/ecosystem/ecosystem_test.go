@@ -89,6 +89,36 @@ func TestMakeEcosystemAPK(t *testing.T) {
 			},
 			want: "BellSoft Hardened Containers:stream",
 		},
+		{
+			desc: "Wolfi OS",
+			metadata: &apkmeta.Metadata{
+				OSID:        "wolfi",
+				OSVersionID: "20230201",
+			},
+			want: "Wolfi",
+		},
+		{
+			desc: "Wolfi OS no version",
+			metadata: &apkmeta.Metadata{
+				OSID: "wolfi",
+			},
+			want: "Wolfi",
+		},
+		{
+			desc: "Chainguard image",
+			metadata: &apkmeta.Metadata{
+				OSID:        "chainguard",
+				OSVersionID: "20231201",
+			},
+			want: "Chainguard",
+		},
+		{
+			desc: "Chainguard image no version",
+			metadata: &apkmeta.Metadata{
+				OSID: "chainguard",
+			},
+			want: "Chainguard",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.desc, func(t *testing.T) {

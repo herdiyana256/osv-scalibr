@@ -1,0 +1,42 @@
+C:Q1abc123wolfipackagebase=
+P:wolfi-baselayout
+V:1.0.0-r2
+A:x86_64
+S:6512
+I:45056
+T:Wolfi base dir structure
+U:https://github.com/wolfi-dev/os
+L:Apache-2.0
+o:wolfi-baselayout
+m:Wolfi Maintainers <opensource@chainguard.dev>
+t:1704067200
+c:aabbccdd11223344aabbccdd11223344aabbccdd
+
+C:Q1python3wolfipackage==
+P:python-3.11
+V:3.11.7-r0
+A:x86_64
+S:30720
+I:131072
+T:A high-level scripting language
+U:https://www.python.org/
+L:PSF-2.0
+o:python-3.11
+m:Wolfi Maintainers <opensource@chainguard.dev>
+t:1704067200
+c:11223344aabbccdd11223344aabbccdd11223344
+
+C:Q1openssl3wolfi==
+P:openssl
+V:3.1.4-r1
+A:x86_64
+S:18432
+I:86016
+T:Toolkit for Transport Layer Security (TLS)
+U:https://www.openssl.org/
+L:Apache-2.0
+o:openssl
+m:Wolfi Maintainers <opensource@chainguard.dev>
+t:1704067200
+c:deadbeefdeadbeefdeadbeefdeadbeefdeadbeef
+

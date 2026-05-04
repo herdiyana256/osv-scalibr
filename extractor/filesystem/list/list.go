@@ -103,6 +103,7 @@ import (
 	"github.com/google/osv-scalibr/extractor/filesystem/os/snap"
 	"github.com/google/osv-scalibr/extractor/filesystem/os/spack"
 	"github.com/google/osv-scalibr/extractor/filesystem/os/winget"
+	"github.com/google/osv-scalibr/extractor/filesystem/os/wolfi"
 	"github.com/google/osv-scalibr/extractor/filesystem/runtime/asdf"
 	"github.com/google/osv-scalibr/extractor/filesystem/runtime/mise"
 	"github.com/google/osv-scalibr/extractor/filesystem/runtime/nodejs/nodeversion"
@@ -337,6 +338,7 @@ var (
 		macports.Name:   {macports.New},
 		winget.Name:     {winget.New},
 		chocolatey.Name: {chocolatey.New},
+		wolfi.Name:      {wolfi.New},
 	}
 
 	// SecretExtractors for Extractor interface.
