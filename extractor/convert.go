@@ -120,6 +120,8 @@ func toEcosystem(p *Package) osvecosystem.Parsed {
 		return osvecosystem.FromEcosystem(osvconstants.EcosystemJulia)
 	case purl.TypePub:
 		return osvecosystem.FromEcosystem(osvconstants.EcosystemPub)
+	case purl.TypeSwift:
+		return osvecosystem.FromEcosystem(osvconstants.EcosystemSwiftURL)
 	}
 
 	// No Ecosystem defined for this package.
